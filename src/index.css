@@ -1,13 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+
+* {box-sizing: border-box;}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*HEADER*/
+
+.header {
+  grid-column: span 2;
+  position: relative;
+  min-width: 320px;;
+  padding: 0 0 20px 0;
+}
+
+.header h1 span {
+  float: left;
+  margin-left: 20px;
+  color: gray;
+  transition: .3s;
+}
+
+.header h1 span:hover {color: black;}
+
+.header h1:hover {
+  color:#333;
+  text-shadow: 2px 2px 5px white;
+}
+
+.header img {
+  position: absolute;
+  width:100%;
+  height:100%;
+  opacity: .4;
+  z-index: -3;
+}
+
+.header h1 {
+  margin: 0;
+  padding-bottom: 90px;
+  text-align: center;
+  font-family: 'Reggae One', cursive;
+  transition: .4s;
+}
+
+.navbar {
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(179, 209, 119);
+}
+
+.navbar a {
+  margin: 0 10px;
+  padding: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Reggae One', cursive;
+  font-weight: 900;
+  transition: .4s;
+}
+
+.navbar a:hover {color: rgb(19, 139, 236);}
+
+.loginForm {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width:100%;
+  margin: 10px 0;
+  padding-right: 10px;
+  text-align: right;
+  min-width: 280px;
+  opacity: .8;
+  font-size: .8em;
+}
+
+.loginForm input {max-width: 50%;}
+
+/*MAINGRID*/
+
+.maingrid>div {
+  border:1px solid gray;
+}
+
+.home {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  padding: 20px;
+  min-width: 320px;
+  position: relative;
+}
+
+@media screen and (min-width:768px) {
+  .home {
+  grid-template-columns: 2fr 1fr;
+  margin: 0;
+  }
+  .item {max-width: 100%;}
+}
+
+.home form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto 30px;
+  background: linear-gradient(to left, white, rgba(7, 216, 59, .5));
+}
+
+.home h5 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Reggae One', cursive;
+  background: linear-gradient(to left, rgba(91, 228, 67, .5), white);
+}
+
+/*MAIN FORM TO ADD ITEMS*/
+
+.clearAll {
+  margin: 0;
+  float:right;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  font-family: 'Reggae One', cursive;
+  color: rgb(105, 4, 4);
+  transition: .3s;
+}
+
+.clearAll:hover {
+  color: red;
+  font-weight: bold;
+}
+
+/*ITEMS*/
+
+.item {
+  min-width: 280px;
+  overflow: auto;
+}
+
+.item button {
+  margin-left: 10px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.item button:hover {
+  color: red;
+}
+
+.editInput {
+  max-width: 300px;
+}
+
+
+
+.loader {
+  margin: 40px auto;
+  padding: 20px;
+  background: url('./components/loader.gif');
+  background-position: top;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px inset rgb(238, 236, 106) ;
+}
+
+/*CALENDAR*/
+
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: flex-start;
+
+}
+
+.monthHeading {
+  margin: 0;
+  text-align: center;
+  font-family: 'Reggae One', cursive;
+  color:rgb(129, 96, 103);
+  transition: .3s;
+}
+
+.monthHeading:hover {color:rgb(118, 45, 151);}
+
+
+.month {
+  display: grid;
+  grid-template-columns: repeat(7,30px);
+  margin: 10px auto;
+  background-color: rgb(71, 88, 122);
+  width:218px;
+  grid-gap:1px;
+  border:1px solid rgb(71, 88, 122);
+  transition: .8s;
+  box-shadow: 2px 2px 15px 5px rgb(25, 100, 37);
+}
+
+.month:hover {
+  transform: scale(1.06) translate(3px, -3px);
+  box-shadow: 1px 1px 9px 3px gray;
+}
+
+.day {
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: cornsilk;
+  font-size: .8em;
+}
+
+.day:hover {background-color: rgb(167, 248, 130);}
+
+
+/*INFO PORTAL*/
+
+#infoPortal {background-color: rgb(188, 215, 250);}
+
+.infoPortal {
+  position: relative;
+  margin: 20px;
+  padding: 0;
+  width: 300px;
+  background-color: burlywood;
+  z-index: 3;
+}
+
+.infoPortal h5 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Reggae One', cursive;
+  background-color: wheat;
+}
+
+.infoPortalClose {
+  position: absolute;
+  margin: 3px 5px;
+  padding: 1px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cornsilk;
+  top: 0;
+  right: 0;
+  border-radius: 2px;
+  transition: .3s;
+  font-family: sans-serif;
+  font-size: .6em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.infoPortalClose:hover {
+  font-weight: 900;
+  background-color: rgb(248, 78, 16);
+  color:white;
+}
+
+textarea {
+  left: 0;
+  font-style: italic;
+  max-width:100%;
+  min-width:100%;
+  margin: 0;
+}
+
+.saveTextArea {
+  opacity: .7;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  border: none;
+  font-size: 19px;
+  transition: .5s;
+  transform-origin: left;
+}
+
+.saveTextArea:hover {
+  opacity: 1;
+  color: rgb(3, 78, 3);
+  background-color: rgb(204, 191, 191);
+  transform: scaleX(1.5);
+}
+/*REMINDER*/
+
+.reminder {
+  min-width: 320px;
+  padding: 0;
+  background-color: rgb(246, 241, 234);
 }

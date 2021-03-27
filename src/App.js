@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {lazy, Suspense} from 'react';
+import Header from './components/Header/Header';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import MainContextProvider from './components/contexts/MainContext';
+import CalendarContextProvider from './components/contexts/CalendarContext';
+// import Home from './components/Home/Home';
+// import Reminder from './components/Reminder/Reminder';
+
+
+const Home = lazy(() => import('./components/Home/Home'));
+const Reminder = lazy(() => import('./components/Reminder/Reminder'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <div>
+            <MainContextProvider>
+              <CalendarContextProvider>
+                <BrowserRouter basename='/'>
+                    <Header />
+                    <Navbar />
+                    <Suspense fallback={<div className="loader"></div>}>
+                          <Route exact path="/appsR7/2021/todo" component={Home} />
+                          <Route path="/appsR7/2021/todo/Reminder" component={Reminder} />
+                    </Suspense>
+                </BrowserRouter>
+              </CalendarContextProvider>
+            </MainContextProvider>
+          </div>
   );
 }
 
