@@ -59,7 +59,7 @@ const Day = ({day, monthIndex}) => {
     setShowInfo(false)
   };
 
-  if(loading) return <div></div>
+  if(loading) return <div>loading....</div>
 
   return (
     <div style={handleToday()}>

@@ -1,6 +1,6 @@
 import React, {lazy, Suspense} from 'react';
 import Header from './components/Header/Header';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import MainContextProvider from './components/contexts/MainContext';
 import CalendarContextProvider from './components/contexts/CalendarContext';
@@ -20,8 +20,10 @@ function App() {
                     <Header />
                     <Navbar />
                     <Suspense fallback={<div className="loader"></div>}>
-                          <Route exact path="/appsR7/2021/todo" component={Home} />
-                          <Route path="/appsR7/2021/todo/Reminder" component={Reminder} />
+                      <Switch>
+                        <Route exact path="/appsR7/2021/todo" component={Home} />
+                        <Route path="/appsR7/2021/todo/Reminder" component={Reminder} />
+                      </Switch>
                     </Suspense>
                 </BrowserRouter>
               </CalendarContextProvider>

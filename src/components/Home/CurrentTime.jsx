@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 
 const CurrentTime = () => {
   const [time, setTime] = useState(new Date().toLocaleString());
-  
-
 
   useEffect(() => {
     const timeInterval = setInterval(() => {
@@ -11,8 +9,6 @@ const CurrentTime = () => {
     },1000)
     return () => clearInterval(timeInterval)
   },[time])
-
-
 
   return (
     <div style={{textAlign: 'center'}}>

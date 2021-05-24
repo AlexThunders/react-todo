@@ -24,20 +24,11 @@ const Item = ({item}) => {
     return {textDecoration: item.complete ? 'line-through' : 'none'}
   }
 
-  // const handleDate = (e) => {
-  //   const date = e.target.value.toString()
-  //   if(e.keyCode === 13) {
-  //     dispatch({type:"SET_WITH_DATE",id})
-  //     dispatch({type:"ADD_DATE", date, id})
-  //   }
-  // }
-
   const handleDateInMobile = (e) => {
     const date = e.target.value.toString()
     dispatch({type:"SET_WITH_DATE",id})
     dispatch({type:"ADD_DATE", date, id})
   }
-
 
   return (
     <div className="item" style={checkCompletion()}>
