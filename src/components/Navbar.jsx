@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="navbar">
       <Link to="/appsR7/2021/todo">Home</Link>
       <Link to="/appsR7/2021/todo/Reminder">Calendar</Link>
-  </div>
+    </div>
   )
 }
 

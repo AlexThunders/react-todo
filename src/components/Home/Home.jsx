@@ -36,10 +36,10 @@ const Home = () => {
 
         <button className="clearAll" onClick={() => dispatch({type:"CLEAR"})}>Clear all</button>
       </div>
-          <div>
-            <CurrentTime />
-            <Month index={index} />
-          </div>
+      <div>
+        <CurrentTime />
+        <Month index={index} />
+      </div>
     </div>
   )
 }

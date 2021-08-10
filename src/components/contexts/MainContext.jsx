@@ -1,4 +1,4 @@
-import React, {createContext,useState, useEffect, useReducer} from 'react';
+import React, {createContext, useEffect, useReducer} from 'react';
 import {reducer} from './reducer';
 
 export const MainContext = createContext();
